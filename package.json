@@ -1,0 +1,44 @@
+{
+  "name": "antigravity-extension",
+  "publisher": "jordanblakey",
+  "displayName": "Antigravity Fix Webview",
+  "description": "Fixes webview issues in Antigravity",
+  "version": "0.0.1",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "antigravity-extension.fixWebview",
+        "title": "Antigravity: Fix Webview Issues"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --allow-star-activation",
+    "install": "npm run package && antigravity --install-extension $(ls -t *.vsix | head -n1)"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordanblakey/antigravity-webview-fix-extension.git"
+  }
+}
